@@ -41,7 +41,7 @@ const config = [
         },
         output: {
             path: PATHS.DIST,
-            filename: 'css/[name].css',
+            filename: 'styles/[name].css',
         },
         devtool: (ENV !== 'production') ? 'source-map' : '',
         module: moduleCSS(ENV, PATHS),

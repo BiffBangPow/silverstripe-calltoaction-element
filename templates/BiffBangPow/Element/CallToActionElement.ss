@@ -10,3 +10,4 @@
     </div>
 </div>
 
+<% require css('biffbangpow/silverstripe-module-template:client/dist/styles/module.css') %>
