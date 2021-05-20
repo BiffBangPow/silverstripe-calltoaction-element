@@ -1,6 +1,6 @@
 {
-  "name": "biffbangpow/silverstripe-elementmodule-template",
-  "description": "A basic skeleton for a Silverstripe 4 elemental module",
+  "name": "biffbangpow/silverstripe-calltoaction-element",
+  "description": "Silverstripe 4 call to action element",
   "type": "silverstripe-vendormodule",
   "minimum-stability": "dev",
   "license": "proprietary",
@@ -8,16 +8,21 @@
     {
       "name": "Tim Burt",
       "email": "tim@biffbangpow.com"
+    },
+    {
+      "name": "James Heathcote",
+      "email": "james@biffbangpow.com"
     }
   ],
   "require": {
     "silverstripe/vendor-plugin": "^1.0",
     "silverstripe/cms": "^4",
-    "dnadesign/silverstripe-elemental": "^4@stable"
+    "dnadesign/silverstripe-elemental": "^4@stable",
+    "sheadawson/silverstripe-linkable": "^2.0"
   },
   "autoload": {
     "psr-4": {
-      "BiffBangPow\\Element\\MyElement\\": "src/"
+      "BiffBangPow\\Element\\": "src/"
     }
   },
   "extra": {
