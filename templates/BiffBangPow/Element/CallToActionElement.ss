@@ -9,5 +9,3 @@
         </div>
     </div>
 </div>
-
-<% require css('biffbangpow/silverstripe-calltoaction-element:client/dist/styles/module.css') %>
