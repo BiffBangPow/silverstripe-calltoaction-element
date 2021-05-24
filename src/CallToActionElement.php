@@ -21,6 +21,8 @@ class CallToActionElement extends BaseElement
 
     private static $description = 'Text with a call to action button';
 
+    private static $inline_editable = false;
+
     /**
      * @var array
      */
