@@ -2,79 +2,53 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Element\Control\MultiCallToActionElementController;
+use BiffBangPow\Element\Model\CallToActionTile;
+use BiffBangPow\Extension\ElementInlineUnEditable;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class CallToActionElement extends BaseElement
 {
-    /**
-     * @var string
-     */
-    private static $table_name = 'ElementCallToAction';
-
-    private static $singular_name = 'call to action element';
-
-    private static $plural_name = 'call to action elements';
-
-    private static $description = 'Text with a call to action button';
-
+    private static $table_name = 'CTAElement';
+    private static $description = 'Calls-to-action with images';
     private static $inline_editable = false;
 
-    /**
-     * @var array
-     */
-    private static $db = [
-        'Text' => 'HTMLText',
+    private static $many_many = [
+        'CTAs' => CallToActionTile::class
     ];
 
-    /**
-     * @var array
-     */
-    private static $has_one = [
-        'CallToAction' => Link::class,
-    ];
+    public function getType()
+    {
+        return _t(__CLASS__ . '.BlockType', 'Multi-CTA');
+    }
 
-    /**
-     * @var array
-     */
-    private static $owns = [
-        'CallToAction',
-    ];
-
-    /**
-     * @return FieldList
-     */
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
-        $fields->addFieldsToTab(
-            'Root.Main',
-            [
-                HTMLEditorField::create('Text'),
-                LinkField::create(
-                    'CallToActionID',
-                    'Call To Action'
-                ),
-            ]
-        );
-
+        $fields->removeByName('CTAs');
+        $grid = GridField::create('CTAs', 'CTAs', $this->CTAs(),
+            GridFieldConfig_RelationEditor::create()->addComponent(new GridFieldOrderableRows()));
+        $fields->addFieldsToTab('Root.Main', [
+            $grid
+        ]);
         return $fields;
     }
 
     /**
+     * Returns a classname based on the number of CTA elements being displayed
+     * No fancy maths here, just a few rules for a small number of elements
+     * Otherwise we just default to a 1/3 width
      * @return string
      */
-    public function getType()
+    public function getColumnClass()
     {
-        return 'Call to Action';
-    }
-
-    public function getSimpleClassName()
-    {
-        return 'call-to-action-element';
+        $numItems = $this->CTAs()->count();
+        if (($numItems < 3) || ($numItems == 4) || ($numItems == 8)) {
+            return 'col-12 col-lg-6';
+        }
+        return 'col-12 col-lg-4';
     }
 }

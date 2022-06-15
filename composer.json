@@ -1,30 +1,31 @@
 {
-  "name": "biffbangpow/silverstripe-calltoaction-element",
-  "description": "Silverstripe 4 call to action element",
-  "type": "silverstripe-vendormodule",
-  "minimum-stability": "dev",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Tim Burt",
-      "email": "tim@biffbangpow.com"
+    "name": "biffbangpow/silverstripe-calltoaction-element",
+    "description": "Silverstripe 4 call to action element",
+    "type": "silverstripe-vendormodule",
+    "minimum-stability": "dev",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Tim Burt",
+            "email": "tim@biffbangpow.com"
+        },
+        {
+            "name": "James Heathcote",
+            "email": "james@biffbangpow.com"
+        }
+    ],
+    "require": {
+        "silverstripe/vendor-plugin": "^1.0",
+        "silverstripe/cms": "^4",
+        "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
+        "biffbangpow/silverstripe-sortable-extension": "^1.0",
+        "biffbangpow/silverstripe-cta-extension": "^1"
     },
-    {
-      "name": "James Heathcote",
-      "email": "james@biffbangpow.com"
+    "autoload": {
+        "psr-4": {
+            "BiffBangPow\\Element\\": "src/"
+        }
+    },
+    "extra": {
     }
-  ],
-  "require": {
-    "silverstripe/vendor-plugin": "^1.0",
-    "silverstripe/cms": "^4",
-    "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
-    "sheadawson/silverstripe-linkable": "^2.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "BiffBangPow\\Element\\": "src/"
-    }
-  },
-  "extra": {
-  }
 }
