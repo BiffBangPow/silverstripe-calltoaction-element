@@ -16,7 +16,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\ORM\DataObject;
-use UncleCheese\DisplayLogic\Forms\Wrapper;
+
 
 class CallToActionTile extends DataObject
 {
@@ -48,7 +48,9 @@ class CallToActionTile extends DataObject
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title'),
             TextareaField::create('Content'),
-            UploadField::create('Image')->setAllowedFileCategories('image/supported')->setFolderName('CTA')
+            UploadField::create('Image')
+                ->setAllowedFileCategories('image/supported')
+                ->setFolderName('CTA')
         ]);
 
         return $fields;

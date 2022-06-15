@@ -22,7 +22,7 @@ class CallToActionElement extends BaseElement
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Multi-CTA');
+        return _t(__CLASS__ . '.BlockType', 'Calls-to-action');
     }
 
     public function getCMSFields()
