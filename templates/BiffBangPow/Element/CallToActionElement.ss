@@ -7,9 +7,9 @@
         </div>
     <% end_if %>
 
-    <div class="row mb-4">
+    <div class="row">
         <% loop $CTAs %>
-            <div class="cta-holder $Up.ColumnClass">
+            <div class="cta-holder $Up.ColumnClass mb-4">
                 <div class="cta-image h-100 p-3 p-lg-4"
                      style="background-size: cover; background-position: center; background-image: url('<% if $Up.WebPSupport %>$Image.ScaleWidth(500).Format('webp').URL<% else %>$Image.ScaleWidth(500).URL<% end_if %>')">
                     <div class="shader"></div>
