@@ -44,7 +44,7 @@ class CallToActionTile extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName(['CTAType', 'ActionID', 'DownloadFile']);
+        $fields->removeByName(['CTAType', 'ActionID', 'DownloadFile', 'Element']);
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title'),
             TextareaField::create('Content'),

@@ -6,25 +6,28 @@
             </div>
         </div>
     <% end_if %>
-    <div class="cta-grid">
+
+    <div class="row mb-4">
         <% loop $CTAs %>
             <div class="cta-holder $Up.ColumnClass">
-                <a class="cta-link"
-                   href="<% if $CTAType == 'Download' %>$DownloadFile.URL<% else %>$Action.Link<% end_if %>"
-                   <% if $CTAType == 'Download' %>download<% end_if %>>
-                    <div class="cta-image"
-                         style="background-image: url('<% if $Up.WebPSupport %>$Image.ScaleWidth(500).Format('webp').URL<% else %>$Image.ScaleWidth(500).URL<% end_if %>')">
-                        <div class="shader"></div>
-                        <div class="cta-content">
-                            <h3>$Title</h3>
-                            <p>$Content</p>
-                        </div>
-                        <img class="readmore icon-white" src=""
-                             data-src="$ThemeDir/client/dist/img/icons/arrow-right.svg" alt="Right arrow"
-                             loading="lazy">
-                        <div class="cover"></div>
+                <div class="cta-image h-100 p-3 p-lg-4"
+                     style="background-size: cover; background-position: center; background-image: url('<% if $Up.WebPSupport %>$Image.ScaleWidth(500).Format('webp').URL<% else %>$Image.ScaleWidth(500).URL<% end_if %>')">
+                    <div class="shader"></div>
+                    <div class="cta-content">
+                        <h3>$Title</h3>
+                        <p>$Content</p>
                     </div>
-                </a>
+                    <% if $CTAType != 'None' %>
+                        <p>
+                            <a href="$CTALink" class="cta-link btn btn-secondary"
+                                <% if $CTAType == 'External' %>target="_blank" rel="noopener"
+                                <% else_if $CTAType == 'Download' %>download
+                                <% end_if %>>
+                                $LinkText
+                            </a>
+                        </p>
+                    <% end_if %>
+                </div>
             </div>
         <% end_loop %>
     </div>
