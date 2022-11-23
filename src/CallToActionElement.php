@@ -51,4 +51,9 @@ class CallToActionElement extends BaseElement
         }
         return 'col-12 col-lg-4';
     }
+
+    public function getSimpleClassName()
+    {
+        return 'bbp-cta';
+    }
 }
