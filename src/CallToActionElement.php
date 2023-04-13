@@ -37,21 +37,6 @@ class CallToActionElement extends BaseElement
         return $fields;
     }
 
-    /**
-     * Returns a classname based on the number of CTA elements being displayed
-     * No fancy maths here, just a few rules for a small number of elements
-     * Otherwise we just default to a 1/3 width
-     * @return string
-     */
-    public function getColumnClass()
-    {
-        $numItems = $this->CTAs()->count();
-        if (($numItems < 3) || ($numItems == 4) || ($numItems == 8)) {
-            return 'col-12 col-lg-6';
-        }
-        return 'col-12 col-lg-4';
-    }
-
     public function getSimpleClassName()
     {
         return 'bbp-cta';
