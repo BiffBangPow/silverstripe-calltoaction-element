@@ -10,6 +10,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
@@ -24,7 +25,7 @@ class CallToActionTile extends DataObject
     private static $db = [
         'Title' => 'Varchar',
         'ShowTitle' => 'Boolean',
-        'Content' => 'Text',
+        'Content' => 'HTMLText',
         'ColsMobile' => 'Int',
         'ColsTablet' => 'Int',
         'ColsDesktop' => 'Int',
@@ -56,7 +57,7 @@ class CallToActionTile extends DataObject
         $fields->removeByName(['Element', 'ColsMobile', 'ColsTablet', 'ColsDesktop', 'ColsLarge', 'ShowTitle']);
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title'),
-            TextareaField::create('Content'),
+            HTMLEditorField::create('Content'),
             UploadField::create('Image')
                 ->setAllowedFileCategories('image/supported')
                 ->setFolderName('CTA'),

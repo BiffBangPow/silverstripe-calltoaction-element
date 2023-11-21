@@ -2,6 +2,7 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Element\Control\CallToActionElementController;
 use BiffBangPow\Element\Control\MultiCallToActionElementController;
 use BiffBangPow\Element\Model\CallToActionTile;
 use BiffBangPow\Extension\ElementInlineUnEditable;
@@ -19,6 +20,8 @@ class CallToActionElement extends BaseElement
     private static $many_many = [
         'CTAs' => CallToActionTile::class
     ];
+
+    private static $controller_class = CallToActionElementController::class;
 
     public function getType()
     {
