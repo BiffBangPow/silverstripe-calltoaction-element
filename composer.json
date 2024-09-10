@@ -1,6 +1,6 @@
 {
     "name": "biffbangpow/silverstripe-calltoaction-element",
-    "description": "Silverstripe 4 call to action element",
+    "description": "Silverstripe call to action element",
     "type": "silverstripe-vendormodule",
     "minimum-stability": "dev",
     "license": "proprietary",
@@ -15,12 +15,10 @@
         }
     ],
     "require": {
-        "silverstripe/vendor-plugin": "^1.0",
-        "silverstripe/cms": "^4",
-        "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
-        "biffbangpow/silverstripe-sortable-extension": "^v2",
-        "biffbangpow/silverstripe-cta-extension": "^1",
-        "biffbangpow/silverstripe-element-spacing": "^1"
+        "dnadesign/silverstripe-elemental": "*",
+        "biffbangpow/silverstripe-sortable-extension": "dev-master",
+        "biffbangpow/silverstripe-cta-extension": "dev-master",
+        "biffbangpow/silverstripe-element-spacing": "dev-master"
     },
     "autoload": {
         "psr-4": {
