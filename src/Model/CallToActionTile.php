@@ -74,6 +74,8 @@ class CallToActionTile extends DataObject
                 ->setName('Title')
         );
 
+        $this->extend('updateTileFields', $fields);
+
         return $fields;
     }
 
