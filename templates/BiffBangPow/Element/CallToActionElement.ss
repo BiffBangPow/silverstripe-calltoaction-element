@@ -10,7 +10,7 @@
     <div class="row">
         <% loop $CTAs %>
             <div class="cta-holder $ColumnClass mb-4 d-flex">
-                <div class="cta-image h-100 p-3 p-lg-4" <% if $Image %>style="background-size: cover; background-position: center; background-image: url('<% if $Up.WebPSupport %>$Image.ScaleWidth(500).Format('webp').URL<% else %>$Image.ScaleWidth(500).URL<% end_if %>')"<% end_if %>>
+                <div class="cta-image h-100 p-3 p-lg-4" <% if $Image %>style="background-size: cover; background-position: center; background-image: url('$Image.ScaleWidth(500).Convert('webp').URL')"<% end_if %>>
                     <div class="shader"></div>
                     <% if $ShowTitle || $Content %>
                         <div class="cta-content">
