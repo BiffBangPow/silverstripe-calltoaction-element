@@ -47,8 +47,7 @@ class CallToActionTile extends DataObject
         'Element' => CallToActionElement::class
     ];
     private static $extensions = [
-        SortableExtension::class,
-        CallToActionExtension::class
+        SortableExtension::class
     ];
 
     public function getCMSFields()
