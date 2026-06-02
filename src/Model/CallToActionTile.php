@@ -13,6 +13,8 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\LinkField\Form\LinkField;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\ORM\DataObject;
 
 
@@ -32,7 +34,8 @@ class CallToActionTile extends DataObject
         'ColsLarge' => 'Int'
     ];
     private static $has_one = [
-        'Image' => Image::class
+        'Image' => Image::class,
+        'CTA' => Link::class
     ];
     private static $defaults = [
         'ColsMobile' => 12,
@@ -41,7 +44,8 @@ class CallToActionTile extends DataObject
         'ColsLarge' => 3
     ];
     private static $owns = [
-        'Image'
+        'Image',
+        'CTA'
     ];
     private static $belongs_many_many = [
         'Element' => CallToActionElement::class
@@ -60,6 +64,7 @@ class CallToActionTile extends DataObject
             UploadField::create('Image')
                 ->setAllowedFileCategories('image/supported')
                 ->setFolderName('CTA'),
+            LinkField::create('CTA'),
             HeaderField::create('Width of this tile:'),
             DropdownField::create('ColsMobile', 'Mobile', $this->getColumnSizes()),
             DropdownField::create('ColsTablet', 'Tablet', $this->getColumnSizes()),

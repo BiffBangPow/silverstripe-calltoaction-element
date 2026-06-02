@@ -9,9 +9,14 @@
 
     <div class="row">
         <% loop $CTAs %>
-            <div class="cta-holder $ColumnClass mb-4 d-flex">
-                <div class="cta-image h-100 p-3 p-lg-4" <% if $Image %>style="background-size: cover; background-position: center; background-image: url('$Image.ScaleWidth(500).Convert('webp').URL')"<% end_if %>>
-                    <div class="shader"></div>
+            <div class="cta-holder $ColumnClass mb-4 d-flex flex-column">
+                <div class="cta-image h-100 mb-3">
+                    <% with $Image.Fill(650, 360) %>
+                        <img alt="$Title" class="img-fluid lazyload" src="$Convert('avif').URL" loading="lazy" width="$Width"
+                             height="$Height">
+                    <% end_with %>
+                </div>
+                <div>
                     <% if $ShowTitle || $Content %>
                         <div class="cta-content">
                             <% if $ShowTitle %>
@@ -22,16 +27,15 @@
                             <% end_if %>
                         </div>
                     <% end_if %>
-                    <% if $CTAType != 'None' %>
-                        <p class="cta-holder mt-4">
-                            <a href="$CTALink" class="cta-link btn btn-outline-primary"
-                                <% if $CTAType == 'External' %>target="_blank" rel="noopener"
-                                <% else_if $CTAType == 'Download' %>download
-                                <% end_if %>>
-                                $LinkText
-                            </a>
-                        </p>
-                    <% end_if %>
+                    <% with $CTA %>
+                        <% if $exists %>
+                            <div class="cta text-center">
+                                <p>
+                                    <a class="cta-link btn btn-primary" href="$URL" <% if $OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>$Title</a>
+                                </p>
+                            </div>
+                        <% end_if %>
+                    <% end_with %>
                 </div>
             </div>
         <% end_loop %>
